@@ -1,38 +1,202 @@
-.App {
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Karla:wght@700&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  background: black;
+}
+
+main {
+  height: 550px;
+  width: 550px;
+  background: #f5f7fb;
+  display: flex;
+  margin-left: 95px;
+  margin-top: 112px;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.main__topcurve {
+  width: 297px;
+  height: 235px;
+  position: absolute;
+  left: 395px;
+  top: -130px;
+  background: url('./images/topcurve.png');
+  background-repeat: no-repeat;
+  background-origin: border-box;
+  background-position: bottom left;
+}
+
+.main__bottomcurve {
+  position: absolute;
+  width: 287px;
+  height: 235px;
+  background: url('./images/bottomcurve.png');
+  background-repeat: no-repeat;
+  background-position: right top;
+  background-origin: border-box;
+  left: -149px;
+  bottom: -117px;
+}
+
+.intro {
+  height: 550px;
+  width: 550px;
+  background: #f5f7fb;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  margin-top: 112px;
+  margin: auto;
+}
+
+.intro__title {
+  font-family: 'Karla', sans-serif;
+  font-weight: 700;
+  font-size: 31px;
+  line-height: 36px;
+  text-align: center;
+  color: #293264;
+}
+
+.intro__para {
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 10px;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.intro__button {
+  width: 193px;
+  height: 52px;
+  border-radius: 15px;
+  background-color: #4d5b9e;
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  text-align: center;
+  color: #f5f7fb;
+  cursor: pointer;
+  margin-top: 45px;
+  border: none;
+  outline: none;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.intro__button:focus {
+  outline: none;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* Trivia Section */
+
+.trivia {
+  padding: 20px 40px;
   display: flex;
   flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin: 40 50px 50px;
+  z-index: 10;
+}
+
+.trivia--qna {
+  border-bottom: 1px solid #dbdef0;
+  padding-bottom: 10px;
+}
+
+.trivia--question__text {
+  font-family: 'Karla', sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 16px;
+  line-height: 19px;
+  color: #293264;
+  margin-bottom: 11px;
+}
+
+.trivia--answers {
+  display: flex;
+  justify-content: space-evenly;
   align-items: center;
+  min-width: 500px;
+}
+
+.trivia--answers__choice {
+  min-width: 65px;
+  height: 20px;
+  background: #f5f7fb;
+  border-radius: 8px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: 10px;
+  line-height: 12px;
+  text-align: center;
+  border: 1px solid #4d5b9e;
+  cursor: pointer;
+}
+
+.trivia--answers__choice:hover {
+  border: 2px solid #4d5b9e;
+}
+
+.trivia--answers__choice.selected {
+  border: none;
+  background: #d6dbf5;
+}
+
+.trivia--answers__choice.correct {
+  background: #94d7a2;
+  color: #293264;
+  border: none;
+}
+
+.trivia--answers__choice.wrong {
+  background: #f8bcbc;
+  color: gray;
+  border: none;
+}
+
+.trivia--chk {
+  display: flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  width: 100%;
+  margin-top: 10px;
 }
 
-.App-link {
-  color: #61dafb;
+.trivia--chk__btn {
+  width: 120px;
+  height: 35px;
+  border-radius: 10px;
+  background: #4d5b9e;
+  color: #f5f7fb;
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 10px;
+  line-height: 12px;
+  text-align: center;
+  border: none;
+  cursor: pointer;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.trivia--chk__btn: focus {
+  outline: none;
+}
+
+.trivia--chk__winMsg {
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 15.5px;
+  color: #293264;
+  text-align: center;
+  padding: 0 30px;
 }

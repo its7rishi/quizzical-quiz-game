@@ -1,25 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import './App.css'
+import React from 'react'
+import Intro from './components/Intro'
+import Trivia from './components/Trivia'
+import data from './data.js' // for testing and desigining
 
-function App() {
+export default function App() {
+  const [startQuiz, setStartQuiz] = React.useState(false)
+  const [trivias, setTrivias] = React.useState([])
+
+  async function fetchTrivias() {
+    await fetch(
+      'https://opentdb.com/api.php?amount=5&category=9&difficulty=easy&type=multiple'
+    )
+      .then((res) => res.json())
+      .then((data) => setTrivias(data.results))
+      .catch((err) => console.log(err))
+  }
+
+  React.useEffect(() => {
+    if (!startQuiz) fetchTrivias()
+  }, [startQuiz])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+    <main>
+      <div className='main__topcurve'></div>
+      {!startQuiz && <Intro handleClick={() => setStartQuiz(true)} />}
+      {startQuiz && <Trivia trivias={trivias} setStartQuiz={setStartQuiz} />}
 
-export default App;
+      <div className='main__bottomcurve'></div>
+    </main>
+  )
+}
