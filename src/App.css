@@ -191,7 +191,7 @@ main {
   cursor: pointer;
 }
 
-.trivia--chk__btn: focus {
+.trivia--chk__btn:focus {
   outline: none;
 }
 
